@@ -1,0 +1,234 @@
+01 - Introducción
+
+Back-End: Capa de datos y lógica del negocio.
+Front-End: Capa de presentación, interacción con el usuario.
+
+ECMAScript: Estándar de ECMA basado en JavaScript.
+
+NodeJS: Plataforma o entorno JavaScript basada en Google V8 (escrita en C++, open source, manipulable y embebida).
+
+Node e IO fundaron The Node Foundation.
+
+Características de NodeJS:
+
+- Single Thread: 1 único hilo.
+- Concurrente.
+- No paralelismo: Varias operaciones en simultáneo.
+- Ejecución de callbacks (varias acciones).
+
+¿Para qué es bueno NodeJS?
+
+- Conexión persistente con el navegador y el servidor (Walmart).
+- Necesidad de procesamiento en tiempo real.
+- Sockets.
+
+02 - Instalación
+
+- En Linux se realiza a través de CURL
+- En Windows es muy fácil
+
+03 - Instalación de Visual Studio Code
+
+code .
+
+04 - Módulos y Require
+
+Módulos: Unidad de funcionalidades listas para nuestro uso.
+
+Formatear código: Shift + Alt + F
+
+String Templates: disponibles desde ECMAScript 6 => Alt + 96
+
+05 - Require y Exports
+
+module.exports = {
+    autor: autor,
+    saludar: function () {
+        console.log("Hola Mundo!");
+    }
+};
+
+06 - Funciones flecha
+
+Se pueden usar a partir de ECMAScript 6.
+
+07 - File System
+
+- Procesamiento asíncrono: Te permite ejecutar diferentes operaciones en un espacio de tiempo.
+- Procesamiento síncrono: Los procesos se ejecutan de forma secuencial.
+
+08 - NPM (Node Package Manager)
+
+- npm install lodash
+
+Lodash es una biblioteca de JavaScript que proporciona funciones de utilidad para tareas de programación 
+comunes utilizando el paradigma de programación funcional.
+
+- npm init: Para inicializar un npm package, crea el archivo: 'package.json'
+
+- npm install: Lee el archivo 'package.json' e instala las dependencias.
+
+- npm uninstall lodash: Para desinstalar un módulo.
+
+09 - Lodash - Yargs
+
+Yargs le ayuda a crear herramientas de línea de comandos interactivas, analizando argumentos y 
+generando una elegante interfaz de usuario.
+
+node .\cap09.js --usuario=UskoKruM2010
+
+10 - Inspector (Debugging)
+
+Depuración de código utilizando NodeJS.
+
+node inspect .\app.js
+
+n => Para ir a la siguiente línea.
+repl => Para entrar a ver cada uno de los valores.
+list(10) => De la línea 1, 10 espacios en adelante.
+
+debugger; => Para crear un punto de interrupción.
+c => Para ir a la línea de interrupción (breakpoint).
+
+Nodemon:
+nodemon .\app.js 
+Se pueden cambiar valores del código y grabando, todo se refresca.
+nodemon inspect .\app.js 
+
+11 - Chrome Dev Tools
+
+En una pestaña de Google Chrome: chrome://inspect
+Para que Dev Tools escuche: node --inspect-brk app.js
+Dentro de Chrome Dev Tools debe aparecer el script que estamos ejecutando.
+
+Para cambiar en vivo: nodemon --inspect-brk app.js
+
+12 - HTTP Request
+
+npm i request: Para instalar el módulo 'request', se debe importar.
+
+http://maps.googleapis.com/maps/api/geocode/json => Vacío.
+
+jsonviewer.stack.hu
+
+13 - HTTPS API GitHub
+
+npm i https: Para instalar el módulo 'https'.
+
+14 - Promesas
+
+Viene de forma nativa desde ECMAScript6 (ES6), van a permitir que nuestro código sea más legible y poder 
+hacer procesamientos de forma asíncrona y esperar hasta que te devuelva un resultado prometido.
+
+15 - Node Fetch
+
+La API Fetch proporciona una interfaz para recuperar recursos (incluyendo recursos remotos a través de redes).
+
+16 - Express Middleware
+
+Express es un framework (infraestructura de aplicaciones) web, uno de los más importantes en el ecosistema de NodeJS.
+
+Middlewares: Pequeños trozos de código que se ejecutan a modo de comprobación cuando un usuario realiza 
+una petición, entre el request y antes del response.
+
+17 - Pug / Hbs (Motores de plantillas)
+
+pug: Motor de plantillas para trabajar de forma práctica nuestras páginas web.
+npm i pug
+
+Para importar Boostrap y usar las clases: se hace con notación de punto.
+
+hbs: Motor de plantillas proveniente de handlebars.js, para trabajar de forma más práctica.
+
+18 - Express Generator
+
+Es un generador que nos va a dar un esqueleto (estructura básica) para nuestros proyectos.
+
+npm i express-generator -g
+
+express --view=pug pug-generator => Para generar un proyecto con 'pug'.
+express --view=hbs hbs-generator => Para generar un proyecto con 'hbs'.
+
+npm install: Para instalar las dependencias del archivo package.json
+
+set DEBUG=pug-generator:* ; npm start => Para iniciar la aplicación.
+
+19 - MongoDB + Robo 3T
+
+Robo 3T: Interfaz para interactuar con la base de datos.
+
+En la ruta de instalación de MongoDB abrimos un PowerShell, indicamos la ruta de la carpeta data:
+
+mongod.exe --dbpath C:\D\HD\UK\JavaScript\FWs\NodeJS\Proyectos\MC_NodeJS\mongo-data
+
+Comienza a correr en el puerto 27017
+
+Abrir otro símbolo del sistema y acceder a la ruta de instalación:
+
+C:\Program Files\MongoDB\Server\4.4\bin
+mongo.exe => Y ya podemos ejecutar comandos.
+
+20 - Mongoose (CRUD)
+
+ODM: Object Document Mapping, Mongoose es un ODM.
+
+- Creamos un nuevo proyecto con express-generator
+- Creamos 2 carpetas dentro: config y models
+- Instalar mongoose: npm i mongoose
+
+set DEBUG=node-app-crud:* ; npm start => Para iniciar la aplicación.
+
+*******************************************************************
+
+Comandos del shell (que es un intérprete de JavaScript) de MongoDB:
+
+- cls: limpiar consola
+- Podemos ejecutar comandos propios del intérprete de JavaScript:
+    - Math.PI
+    - new Date()
+    - new Date("2020/10/03)
+- Comandos propios de MongoDB
+    - db: Para ver la base de datos que estamos usando (test, por defecto).
+    - show dbs: Muestra las bases de datos que tenemos (3, por defecto).
+    - help: Ayuda.
+    - db.help(): Todos los comandos 'db' que puedo utilizar.
+    - use tiendavirtual: Para crear una nueva base de datos (y cambiar a ella), tener en cuenta que 
+    MongoDB no la va a crear hasta que insertemos como mínimo 1 dato dentro de ella.
+    - db.productos.insert({"nombre": "Lenovo Z50-82"}): Para insertar 1 producto.
+    - show collections: Para mostrar las colecciones de una base de datos.
+    - db.dropDatabase(): Para eliminar una base de datos (asegurarnos de que tenemos seleccionada la 
+    base de datos que realmente queremos eliminar).
+    - db.createCollections("usuarios"): Crea una nueva colección llamada 'usuarios'.
+    - db.productos.drop(): Elimina una colección, retorna true.
+    - db.productos.insert({"nombre": "Lenovo Z50-82"}): También sirve para crear la colección de pasada.
+    - db.ciudades.find(): Buscar (leer) todos los datos de una colección.
+    - db.ciudades.find().pretty(): Para mostrar los datos en cascada JSON.
+    - Podemos insertar varios documentos a la vez ubicándolos dentro de un array, separando los objetos 
+    por coma.
+    - db.productos.find({nombre:"Micrófono HyperX"}): Para buscar 1 único documento.
+    - db.productos.find({nombre:"Micrófono HyperX", precio: 10}): Para buscar 1 único documento, con 
+    más de 1 filtro.
+    - db.productos.findOne(): Solo devuelve 1 resultado, se puede combinar con filtros.
+    - db.productos.find({"etiquetas": "gaming"}, {"nombre": 1, "_id": 0})
+    - db.productos.find({"etiquetas": "gaming"}).sort({nombre: 1}): Para ordenar.
+    - db.productos.find().limit(2): Límite de resultados en la consulta.
+    - db.productos.count(): Conteo de elementos.
+    - db.productos.find().forEach(producto => print("Product Name: " + producto.nombre)): Recorrer cada 
+    elemento resultante de una consulta y realizar una operación sobre cada uno de ellos.
+    - db.productos.update({"nombre": "Mouse Razer"}, {"precio": 82.91}): Encuentra 1 coincidencia y 
+    realiza una modificación (pero reemplaza TODO el objeto).
+    - db.productos.update({"precio": 82.91}, {"nombre": "Mouse Razers X7", "precio": 83.92}): Encuentra 1
+    coincidencia y realiza una modificación tal cual era el objeto.
+    - db.productos.update({"nombre": "Mouse Razers X7"}, {"$set": {"descripcion": "Es un super mouse"}}):
+    Agrega una nueva llave:valor a un documento existente.
+    - db.productos.update({"nombre": "CPU"}, {$set: {"descripcion": "Un super CPU"}}, {upsert: true}): 
+    Intenta actualizar y, si no encuentra, registra ese nuevo documento.
+    - db.productos.update({"precio": 650}, {$inc: {"precio": 124.52}}): Actualizar solo para realizar 1
+    incremento a determinado campo numérico.
+    - db.productos.update({"nombre": "Mouse Razers X7"}, {$rename: {"nombre": "name"}}): Para renombrar 
+    una propiedad (atributo) de un documento.
+    - db.productos.remove({"nombre": "Tarjeta RAM Corsair Vengeance 16 Gb"}): Para eliminar documentos.
+    - db.productos.remove({}): Para eliminar todos los documentos.
+- MondoDB convierte los objetos JSON en objetos BSON (Binarios).
+
+*******************************************************************
